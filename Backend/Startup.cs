@@ -14,6 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
+using WebApi.Hubs;
 
 namespace WebApi
 {
@@ -33,6 +34,16 @@ namespace WebApi
             services.AddDbContext<DataContext>(x => x.UseInMemoryDatabase("TestDb"));
             services.AddMvc();
             services.AddAutoMapper();
+
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .WithOrigins("http://localhost:8080");
+            }));
+
+            services.AddSignalR();
 
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
@@ -63,13 +74,11 @@ namespace WebApi
             services.AddScoped<IUserService, UserService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            // global cors policy
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
@@ -79,6 +88,11 @@ namespace WebApi
             app.UseAuthentication();
 
             app.UseMvc();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chat");
+            });
         }
     }
 }

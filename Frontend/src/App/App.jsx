@@ -8,6 +8,7 @@ import { PrivateRoute } from '../_components';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
+import { ChatPage } from '../ChatPage';
 
 class App extends React.Component {
     constructor(props) {
@@ -15,7 +16,6 @@ class App extends React.Component {
 
         const { dispatch } = this.props;
         history.listen((location, action) => {
-            // clear alert on location change
             dispatch(alertActions.clear());
         });
     }
@@ -34,6 +34,7 @@ class App extends React.Component {
                                 <PrivateRoute exact path="/" component={HomePage} />
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
+                                <PrivateRoute path="/chat" component={ChatPage} />
                             </div>
                         </Router>
                     </div>

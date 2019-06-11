@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { Button } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../_actions';
 
 class HomePage extends React.Component {
+
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
-    }
-
-    handleDeleteUser(id) {
-        return (e) => this.props.dispatch(userActions.delete(id));
-    }
+    };
 
     render() {
         const { user, users } = this.props;
         return (
             <div className="col-md-6 col-md-offset-3">
-                <h1>Hi {user.firstName}!</h1>
+                <h2>Hi, {user.firstName}!</h2>       
+                <br/>
                 <p>
-                    <Link to="/login">Logout</Link>
+                    <Link to="/chat">
+                        <button type="button" className="btn btn-primary">
+                            Chat now
+                        </button> 
+                    </Link> &nbsp;
+                    <Link to="/login">
+                        <button type="button" className="btn btn-primary">
+                            Logout
+                    </button></Link>   
                 </p>
             </div>
         );

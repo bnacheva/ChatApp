@@ -32,15 +32,12 @@ namespace WebApi.Services
 
             var user = _context.Users.SingleOrDefault(x => x.Username == username);
 
-            // check if username exists
             if (user == null)
                 return null;
 
-            // check if password is correct
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
                 return null;
-
-            // authentication successful
+       
             return user;
         }
 
@@ -56,7 +53,6 @@ namespace WebApi.Services
 
         public User Create(User user, string password)
         {
-            // validation
             if (string.IsNullOrWhiteSpace(password))
                 throw new AppException("Password is required");
 
@@ -84,17 +80,14 @@ namespace WebApi.Services
 
             if (userParam.Username != user.Username)
             {
-                // username has changed so check if the new username is already taken
                 if (_context.Users.Any(x => x.Username == userParam.Username))
                     throw new AppException("Username " + userParam.Username + " is already taken");
             }
 
-            // update user properties
             user.FirstName = userParam.FirstName;
             user.LastName = userParam.LastName;
             user.Username = userParam.Username;
 
-            // update password if it was entered
             if (!string.IsNullOrWhiteSpace(password))
             {
                 byte[] passwordHash, passwordSalt;
@@ -117,8 +110,6 @@ namespace WebApi.Services
                 _context.SaveChanges();
             }
         }
-
-        // private helper methods
 
         private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {

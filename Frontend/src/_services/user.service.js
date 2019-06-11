@@ -6,8 +6,8 @@ export const userService = {
     register,
     getAll,
     getById,
-    update,
-    delete: _delete
+    delete: _delete,
+    chat
 };
 
 function login(username, password) {
@@ -32,6 +32,10 @@ function login(username, password) {
 
 function logout() {
     // remove user from local storage to log user out
+    localStorage.removeItem('user');
+}
+
+function chat() {
     localStorage.removeItem('user');
 }
 
@@ -61,16 +65,6 @@ function register(user) {
     };
 
     return fetch(config.apiUrl + '/users/register', requestOptions).then(handleResponse, handleError);
-}
-
-function update(user) {
-    const requestOptions = {
-        method: 'PUT',
-        headers: { ...authHeader(), 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
-    };
-
-    return fetch(config.apiUrl + '/users/' + user.id, requestOptions).then(handleResponse, handleError);
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript

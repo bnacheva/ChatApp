@@ -77,7 +77,6 @@ function getAll() {
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }
 
-// prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
     return dispatch => {
         dispatch(request(id));
