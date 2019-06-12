@@ -14,7 +14,7 @@ class ChatPage extends React.Component {
     }
 
     componentDidMount() {
-        const username = "Boryana";
+        const username = "User";
 
         const hubConnection = new HubConnectionBuilder()
             .withUrl('http://localhost:5000/chat')
