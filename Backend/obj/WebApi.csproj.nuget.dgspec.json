@@ -66,6 +66,10 @@
               "target": "Package",
               "version": "[2.0.0, )",
               "autoReferenced": true
+            },
+            "System.Threading.Tasks": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

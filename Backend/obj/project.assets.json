@@ -13411,7 +13411,8 @@
       "Microsoft.AspNet.SignalR >= 2.4.1",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.AspNetCore.SignalR >= 1.1.0",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "System.Threading.Tasks >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -13480,6 +13481,10 @@
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true
+          },
+          "System.Threading.Tasks": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           }
         },
         "imports": [

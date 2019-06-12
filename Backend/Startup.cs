@@ -43,6 +43,9 @@ namespace WebApi
                     .WithOrigins("http://localhost:8080");
             }));
 
+            services.AddScoped<IChatRoomService, ChatRoomService>();
+            services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddSignalR();
 
             // configure strongly typed settings objects
