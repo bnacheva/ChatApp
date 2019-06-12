@@ -22,6 +22,11 @@ class HomePage extends React.Component {
                             Chat now
                         </button> 
                     </Link> &nbsp;
+                    <Link to="/group">
+                        <button type="button" className="btn btn-primary">
+                            Groups
+                        </button> 
+                    </Link> &nbsp;
                     <Link to="/login">
                         <button type="button" className="btn btn-primary">
                             Logout
