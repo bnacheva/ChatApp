@@ -7,7 +7,7 @@ dotnet restore
 dotnet run
 ```
 ### To start the frontend part
-From the /Frontend forler:
+From the /Frontend folder:
 ```
 npm install
 npm start
