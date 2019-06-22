@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\Desktop\\Backend\\WebApi.csproj": {}
+    "c:\\Users\\pc\\Desktop\\ChatApp\\Backend\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\Desktop\\Backend\\WebApi.csproj": {
+    "c:\\Users\\pc\\Desktop\\ChatApp\\Backend\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Desktop\\Backend\\WebApi.csproj",
+        "projectUniqueName": "c:\\Users\\pc\\Desktop\\ChatApp\\Backend\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\pc\\Desktop\\Backend\\WebApi.csproj",
+        "projectPath": "c:\\Users\\pc\\Desktop\\ChatApp\\Backend\\WebApi.csproj",
         "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Desktop\\Backend\\obj\\",
+        "outputPath": "c:\\Users\\pc\\Desktop\\ChatApp\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
